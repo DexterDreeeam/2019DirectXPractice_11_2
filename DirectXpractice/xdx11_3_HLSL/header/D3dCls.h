@@ -2,15 +2,15 @@
 #pragma once
 
 #pragma comment(lib, "d3d11.lib")
+#pragma comment(lib, "d3dx11.lib")
+#pragma comment(lib, "d3dx10.lib")
 #pragma comment(lib, "dxgi.lib")
 #pragma comment(lib, "d3dcompiler.lib")
 
 #include "DDClsMacro.h"
 
 #include <d3d11.h>
-#include <directxmath.h>
-
-using namespace DirectX;
+#include <d3dx10math.h>
 
 class D3dCls
 {
@@ -24,14 +24,14 @@ public_fun:
     void fBeginScene(float, float, float, float);
     void fEndScene();
 
-    ID3D11Device * GetDevice();
-    ID3D11DeviceContext * GetDeviceContext();
+    ID3D11Device * fGetDevice();
+    ID3D11DeviceContext * fGetDeviceContext();
 
-    void GetProjectionMatrix(XMMATRIX &);
-    void GetWorldMatrix(XMMATRIX &);
-    void GetOrthoMatrix(XMMATRIX &);
+    void fGetProjectionMatrix(D3DXMATRIX &);
+    void fGetWorldMatrix(D3DXMATRIX &);
+    void fGetOrthoMatrix(D3DXMATRIX &);
 
-    void GetVideoCardInfo(char *, int &);
+    void fGetVideoCardInfo(char *, int &);
 
 private_mem:
     bool mVsyncEnabled;
@@ -47,7 +47,7 @@ private_mem:
     ID3D11DepthStencilView * mDepthStencilView;
     ID3D11RasterizerState * mRasterState;
 
-    XMMATRIX mProjectionMatrix;
-    XMMATRIX mWorldMatrix;
-    XMMATRIX mOrthoMatrix;
+    D3DXMATRIX mProjectionMatrix;
+    D3DXMATRIX mWorldMatrix;
+    D3DXMATRIX mOrthoMatrix;
 };

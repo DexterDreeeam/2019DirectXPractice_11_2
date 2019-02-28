@@ -71,7 +71,7 @@ bool ModelCls::fInitializeBuffers(ID3D11Device * device)
 
     D3D11_BUFFER_DESC vertexBufferDesc;
     vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-    vertexBufferDesc.ByteWidth = sizeof(vertexBufferDesc) * mVertexCount;
+    vertexBufferDesc.ByteWidth = sizeof(VertexType) * mVertexCount;
     vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
     vertexBufferDesc.CPUAccessFlags = 0;
     vertexBufferDesc.MiscFlags = 0;

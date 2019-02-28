@@ -195,7 +195,7 @@ void ColorShaderCls::fOutputShaderErrorMessage(ID3D10Blob * errorMessage, HWND h
     bufferSize = errorMessage->GetBufferSize();
 
     std::ofstream fout;
-    fout.open("sahder_error.txt");
+    fout.open("shader_error.txt");
     for(int i = 0; i != bufferSize; ++i)
     {
         fout << compileErrors[i];
@@ -205,7 +205,7 @@ void ColorShaderCls::fOutputShaderErrorMessage(ID3D10Blob * errorMessage, HWND h
     errorMessage->Release();
     errorMessage = 0;
 
-    MessageBox(hwnd, "Error compiling shader. Check shader_error.txt for message.", shaderFilename, MB_OK);
+    MessageBox(hwnd, "Error compiling shader, \nCheck shader_error.txt for message.", shaderFilename, MB_OK);
 
     return;
 }
@@ -249,3 +249,4 @@ void ColorShaderCls::fRenderShader(ID3D11DeviceContext * deviceContext, int inde
 
     return;
 }
+

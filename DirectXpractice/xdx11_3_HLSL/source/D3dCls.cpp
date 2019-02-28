@@ -229,9 +229,9 @@ bool D3dCls::fInitialize(
     float fieldOfView = 3.141592654f / 4.0f;
     float screenAspect = (float)screenWidth / (float)screenHeight;
 
-    mProjectionMatrix = XMMatrixPerspectiveFovLH(fieldOfView, screenAspect, screenNear, screenDepth);
-    mWorldMatrix = XMMatrixIdentity();
-    mOrthoMatrix = XMMatrixOrthographicLH((float)screenWidth, (float)screenHeight, screenNear, screenDepth);
+    D3DXMatrixPerspectiveFovLH(&mProjectionMatrix, fieldOfView, screenAspect, screenNear, screenDepth);
+    D3DXMatrixIdentity(&mWorldMatrix);
+    D3DXMatrixOrthoLH(&mOrthoMatrix, (float)screenWidth, (float)screenHeight, screenNear, screenDepth);
 
     return true;
 }
@@ -305,35 +305,35 @@ void D3dCls::fEndScene()
     return;
 }
 
-ID3D11Device * D3dCls::GetDevice()
+ID3D11Device * D3dCls::fGetDevice()
 {
     return mDevice;
 }
 
-ID3D11DeviceContext * D3dCls::GetDeviceContext()
+ID3D11DeviceContext * D3dCls::fGetDeviceContext()
 {
     return mDeviceContext;
 }
 
-void D3dCls::GetProjectionMatrix(XMMATRIX & projectionMatrix)
+void D3dCls::fGetProjectionMatrix(D3DXMATRIX & projectionMatrix)
 {
     projectionMatrix = mProjectionMatrix;
     return;
 }
 
-void D3dCls::GetWorldMatrix(XMMATRIX & worldMatrix)
+void D3dCls::fGetWorldMatrix(D3DXMATRIX & worldMatrix)
 {
     worldMatrix = mWorldMatrix;
     return;
 }
 
-void D3dCls::GetOrthoMatrix(XMMATRIX & orthoMatrix)
+void D3dCls::fGetOrthoMatrix(D3DXMATRIX & orthoMatrix)
 {
     orthoMatrix = mOrthoMatrix;
     return;
 }
 
-void D3dCls::GetVideoCardInfo(char * cardName, int & memory)
+void D3dCls::fGetVideoCardInfo(char * cardName, int & memory)
 {
     strcpy_s(cardName, 128, mVideoCardDescription);
     memory = mVideoCardMemory;

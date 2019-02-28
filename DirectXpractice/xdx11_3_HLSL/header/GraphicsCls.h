@@ -3,6 +3,9 @@
 
 #include "header/DDClsMacro.h"
 #include "header/D3dCls.h"
+#include "header/CameraCls.h"
+#include "header/ModelCls.h"
+#include "header/ColorShaderCls.h"
 
 #include <windows.h>
 
@@ -27,4 +30,7 @@ private_fun:
 
 private_mem:
     D3dCls * mDirect3D;
+    CameraCls * mCamera;
+    ModelCls * mModel;
+    ColorShaderCls * mColorShader;
 };

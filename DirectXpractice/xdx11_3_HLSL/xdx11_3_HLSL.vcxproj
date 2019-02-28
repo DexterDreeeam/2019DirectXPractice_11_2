@@ -121,6 +121,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\CameraCls.cpp" />
     <ClCompile Include="source\ColorShaderCls.cpp" />
     <ClCompile Include="source\D3dCls.cpp" />
     <ClCompile Include="source\GraphicsCls.cpp" />
@@ -130,6 +131,7 @@
     <ClCompile Include="source\SystemCls.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\CameraCls.h" />
     <ClInclude Include="header\ColorShaderCls.h" />
     <ClInclude Include="header\D3dCls.h" />
     <ClInclude Include="header\DDClsMacro.h" />
